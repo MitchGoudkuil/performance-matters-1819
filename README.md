@@ -1,55 +1,96 @@
-# Performance Matters @cmda-minor-web · 2018-2019
+# What to eat readme
+By: Mitch Goudkuil
 
-In dit vak gaan we de eerder bij de OBA gemaakte client side web applicatie ombouwen naar een server side gerenderde applicatie. Verder gaan we een reeks van optimalisaties doorvoeren om de performance van de applicatie te verbeteren. Uiteindelijk zorgen we ervoor dat de applicatie offline beschikbaar.
+Rebuild of the oba project with a new api but same concept.
+A server side rendered application with the function to get a recipe based on your chosen preferences. The data is gathered from the ricePuppy food API.
 
-## Leerdoelen
-- _Je weet het verschil tussen client side en server side rendering en kan server side rendering toepassen_
-- _Je begrijpt hoe de critical render path werkt, en hoe je deze kan optimaliseren voor een betere runtime en/of perceived performance._
-- _Je begrijpt hoe een Service Worker werkt en kan deze in jou applicatie implementeren._
+![Image from the interface](/img/app.png)
 
-[Rubric](https://docs.google.com/spreadsheets/d/e/2PACX-1vTO-pc2UMvpT0pUjt6NJeckc5N9E7QvCxEfVJW1JjuM0m_9MM8ra05J0s6br486Rocz5JVMhAX_C37_/pubhtml?gid=0&single=true)
+---
 
-## Lesprogramma
+### Table of contents
 
-### Week 1 - Server Side rendering
+* [Live Demo](#The-assignment)
+* [Install](#install)
+* [Usage](#Usage)
+   * [Dynamically render questions](#Dynamically-render-questions)
+   * [Setup questions](#Setup-questions)
+* [External data Resources](#External-data-Resources)
+* [Features list](#Features-list)
+   * [Wishlist](#wishlist)
 
-Doel: Webpagina's server side renderen
+### Live Demo
+<!-- [PokeSearch](https://mitchgoudkuil.github.io/web-app-from-scratch-18-19/week2) -->   
 
-[Opdrachten](https://github.com/cmda-minor-web/performance-matters-1819/blob/master/week-1.md)
+### Install
+```bash
+# git clone
+git clone https://github.com/MitchGoudkuil/performance-matters-1819.git
 
-[Slides](...)
+cd performance-matters-1819.git
 
-### Week 2 - Critical Rendering Path  
+# dependencies
+npm install
 
-Doel: Critical Rendering path optimaliseren  
-[Opdrachten](https://github.com/cmda-minor-web/performance-matters-1819/blob/master/week-2.md)
+# start server
+npm run dev
 
-[Slides](...)
-[Performance Matters Introduction - Declan](https://github.com/decrek/presentations/blob/master/cdma-performance-matters-2019.pdf)
+```
 
-### Week 3 - Going Offline 
+### Usage
 
-Doel: Webpagina's offline beschikbaar stellen
+##### Dynamically render questions
+When params is equal to the last in the questions array the question-template will be rendered.
 
-[Opdrachten](https://github.com/cmda-minor-web/performance-matters-1819/blob/master/week-3.md)
+```javascript
+app.get('/question/:number', async function(req, res) {
+  // console.log(ingrArray);
+  if (Number(req.params.number) === questionData.slice(-1).pop().id) {
+    res.render('list-template', {
+      savedData: await api.getRecipe(ingrArray)
+    })
+  } else {
+    res.render('question-template', {
+      currentQuestionData: questionData[Number(req.params.number)],
+      nextQuestion: Number(req.params.number) + 1
+    });
+  }
+})
+```
 
-[Slides](...)
+##### Setup questions
+To set up the questions go to the questions.js file in the helpers directory and add questions like below. Answers can be as much as needed.
+```javascript
+{
+  id: 1,
+  question: "Choose your first spice",
+  tag: "Question 1",
+  answers: ['pepper', 'salt','sugar', 'cinnamon' ]
+}
+```
 
+### External data Resources
+Npm packages used:
+- axios
+- Bodyparser
+- express
+- express-handlebars
 
-<!-- Add a link to your live demo in Github Pages 🌐-->
+Dev dependencies:
+- nodemon
 
-<!-- ☝️ replace this description with a description of your own work -->
+---
 
-<!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
+### Features list
 
-<!-- Maybe a table of contents here? 📚 -->
+- [X] Dynamically render the questions
+- [ ] Possibility to change the food and the ingredients to your liking
+- [ ] Randomly pick a recipe if the user can't choose.
 
-<!-- How about a section that describes how to install this project? 🤓 -->
+### wishlist
 
-<!-- ...but how does one use this project? What are its features 🤔 -->
-
-<!-- What external data source is featured in your project and what are its properties 🌠 -->
-
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
-
-<!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
+- [ ] Save recipe's to your personal page
+- [ ] Save used settings
+- [ ] Edit made choices in ingredients etc
+- [ ] Make the application user friendly
+- [ ] Possibility to use the website while being offline
