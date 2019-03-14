@@ -1,0 +1,16 @@
+
+  <p>Vraag {{ currentQuestionData.id }}</p>
+  <h4> {{ currentQuestionData.question }} </h4>
+
+  <!-- {{# each currentQuestionData.answers }}
+    <a href="{{ nextQuestion }}" class="answer-list__item" name="button" value="{{this}}"> {{ this }} </a>
+  {{/each}} -->
+
+<img src="{{ currentQuestionData.img }}" alt="">
+<form method="post" action="/question/{{nextQuestion}}">
+  {{# each currentQuestionData.answers }}
+    <label for="{{this}}">{{this}}</label>
+    <input type="radio" name="ingr" id="{{this}}" value="{{this}}"><br>
+  {{/each}}
+  <button class="button button__orange" type="submit" name="button">Volgende vraag</button>
+</form>

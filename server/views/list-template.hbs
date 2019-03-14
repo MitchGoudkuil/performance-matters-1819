@@ -1,0 +1,19 @@
+<section class="two-column-template">
+
+  <div class="two-column-template__half">
+    <h1>Your recipe's based on your preferences!</h1>
+  </div>
+
+  <div class="two-column-template__half">
+    <ul class="recipe-list">
+      {{#each savedData }}
+        <li class="recipe-card">
+          <h3 class="recipe-card__title">{{ this.title }}</h3>
+          <p class="recipe-card__ingredients">{{ this.ingredients }}</p>
+          <a target="_blank" href="{{ this.href }}" class="button button__action" type="button" name="button">Open recipe</a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+</section>
