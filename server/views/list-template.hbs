@@ -1,19 +1,20 @@
-<section class="two-column-template">
+<section class="two-row-template">
+  <a class="button button__orange button__search" href="/question/0"><img src="../img/searcher.svg" alt="">New search</a>
 
-  <div class="two-column-template__half">
-    <h1>Your recipe's based on your preferences!</h1>
-  </div>
+  <section class="two-row-template__half">
+    <h1>We found 20 movies based on your preferences!</h1>
+  </section>
 
-  <div class="two-column-template__half">
-    <ul class="recipe-list">
+  <section class="two-row-template__half">
+    <h2>My movie list</h2>
+    <div class="movie-list">
       {{#each savedData }}
-        <li class="recipe-card">
-          <h3 class="recipe-card__title">{{ this.title }}</h3>
-          <p class="recipe-card__ingredients">{{ this.ingredients }}</p>
-          <a target="_blank" href="{{ this.href }}" class="button button__action" type="button" name="button">Open recipe</a>
-        </li>
+        <article class="movie-card">
+          <a href="../movie/{{ this.id }}" type="button" name="button">
+            <img src="https://image.tmdb.org/t/p/w500{{ poster_path }}" alt="">
+          </a>
+        </article>
       {{/each}}
-    </ul>
-  </div>
-
+    </div>
+  </section>
 </section>

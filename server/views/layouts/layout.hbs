@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Wat te eten?</title>
+    <title>Wat to Watch?</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
+  {{# if mainLogo }}
+    <img src="../public/img/logo.svg" alt="">
+  {{/if}}
   {{{ body }}}
 </body>
+<script type="text/javascript" src="js/gsap-min.js"></script>
 </html>
