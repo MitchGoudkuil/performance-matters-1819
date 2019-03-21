@@ -1,16 +1,18 @@
 const express = require('express')
 const app = express()
-
 const api = require('./helpers/api.js')
 const questions = require('./helpers/questions.js')
 const hbs = require('express-handlebars');
-var bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
+const compression = require('compression')
+app.use(compression())
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(__dirname + '/public'))
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts' }))
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views')
+
 const questionData = questions.getAll()
 let ingrArray = []
 
@@ -58,6 +60,7 @@ app.post('/question/:number', function(req, res) {
 app.get('*', function(req, res){
   res.render('error');
 });
+
 
 var server = app.listen(3000, function() {
   console.log('server running at http://localhost:' + server.address().port)

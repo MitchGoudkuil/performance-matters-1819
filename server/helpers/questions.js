@@ -12,14 +12,7 @@ function getAll() {
     question: "What genre would you like to watch?",
     tag: "Second question",
     answers: ['thriller', 'animation','horror', 'comedy']
-  },
-  {
-    id: 3,
-    img: "./img/genre.jpg",
-    question: "What genre would you like to watch?",
-    tag: "Second question",
-    answers: ['thriller', 'animation','horror', 'comedy']
-  },
+  }
 ]
 }
 
