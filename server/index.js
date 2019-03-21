@@ -20,7 +20,8 @@ app.get('/', function(req, res) {
   ingrArray = []
   res.render('index', {
     questions: questionData,
-    nextQuestion: 0
+    nextQuestion: 0,
+    mainLogo: false
   });
 })
 
@@ -28,14 +29,24 @@ app.get('/question/:number', async function(req, res) {
   // console.log(ingrArray);
   if (Number(req.params.number) === questionData.slice(-1).pop().id) {
     res.render('list-template', {
-      savedData: await api.getRecipe(ingrArray)
+      savedData: await api.getMovie(),
+      ingredients: ingrArray,
+      mainLogo: true
     })
   } else {
     res.render('question-template', {
       currentQuestionData: questionData[Number(req.params.number)],
-      nextQuestion: Number(req.params.number) + 1
+      nextQuestion: Number(req.params.number) + 1,
+      mainLogo: false
     });
   }
+})
+
+app.get('/movie/:id/', async function(req, res) {
+  res.render('detail-template', {
+    detailData: await api.getDetails(req.params.id),
+    mainLogo: false
+  });
 })
 
 app.post('/question/:number', function(req, res) {
