@@ -2,31 +2,25 @@ function getAll() {
   return [{
     id: 1,
     img: "./img/brain.jpg",
-    question: "Choose your first spice",
-    tag: "Vraag 1",
-    answers: ['pepper', 'salt','sugar', 'cinnamon' ]
+    question: "Do you want to watch a movie or a serie?",
+    tag: "First question",
+    answers: ['movie', 'serie']
   },
   {
     id: 2,
     img: "./img/genre.jpg",
-    question: "Choose your second spice?",
-    tag: "Vraag 2",
-    answers: ['pepper', 'salt','sugar', 'cinnamon' ]
+    question: "What genre would you like to watch?",
+    tag: "Second question",
+    answers: ['thriller', 'animation','horror', 'comedy']
   },
   {
     id: 3,
-    img: "./img/seamless.jpg",
-    question: "Choose your first ingredient",
-    tag: "Vraag 3",
-    answers: ['cheese', 'bacon', 'onion', 'tomato'],
+    img: "./img/genre.jpg",
+    question: "What genre would you like to watch?",
+    tag: "Second question",
+    answers: ['thriller', 'animation','horror', 'comedy']
   },
-  {
-    id: 4,
-    img: "./img/seamless.jpg",
-    question: "Choose your second ingredient",
-    tag: "Vraag 3",
-    answers: ['cheese', 'bacon', 'onion', 'tomato'],
-  }]
+]
 }
 
 module.exports.getAll = getAll
