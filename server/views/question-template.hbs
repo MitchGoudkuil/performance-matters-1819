@@ -5,8 +5,11 @@
     <form method="post" action="/question/{{nextQuestion}}">
       <div class="question-container__answers ">
         {{# each currentQuestionData.answers }}
-          <input type="radio" name="ingr" id="{{this}}" value="{{this}}" required><br>
-          <label for="{{this}}" class="{{this}}">{{this}}</label>
+          <input type="radio" name="ingr" id="{{this.answer}}" value="{{this.answer}}" required><br>
+          <label for="{{this.answer}}" class="{{this.answer}}">
+            <img src="{{this.img}}" alt="Icon of a {{this.answer}}">
+            {{this.answer}}
+          </label>
         {{/each}}
       </div>
       <button class="button button__orange" type="submit" name="button">Next</button>

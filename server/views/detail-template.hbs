@@ -1,6 +1,7 @@
 <section class="detail-container">
-  <a class="button button__orange button__back" href="javascript:javascript:history.go(-1)"><img src="../img/back.svg" alt="">Back</a>
+
   <div class="detail-container__center">
+      <a class="button button__orange button__back" href="javascript:javascript:history.go(-1)"><img src="../img/back.svg" alt="">Back</a>
     <div class="detail-container__photo">
         <img src="https://image.tmdb.org/t/p/w500{{ detailData.poster_path }}" alt="">
     </div>
@@ -8,6 +9,12 @@
       <h1>{{detailData.title}}</h1>
       <p>Summary: <br />{{detailData.overview}}</p>
       <p>{{detailData.tagline}}</p>
+      <div class="detail-container__genre-container">
+        {{#each detailData.genres }}
+          <small class="detail-container__genre">{{this.name}}</small>
+        {{/each}}
+      </div>
+      <hr>
       <div class="detail-container__companys">
         {{#each detailData.production_companies }}
           <div class="">
