@@ -10,9 +10,10 @@
     <div class="movie-list">
       {{#each savedData }}
         <article class="movie-card">
-          <a href="../movie/{{ this.id }}" type="button" name="button">
-            <img src="https://image.tmdb.org/t/p/w500{{ poster_path }}" alt="">
-          </a>
+          <div class="movie-card__overlay">
+              <a class="button button__detail" href="../movie/{{ this.id }}" type="button" name="button">Details</a>
+          </div>
+          <img src="https://image.tmdb.org/t/p/w500{{ poster_path }}" alt="">
         </article>
       {{/each}}
     </div>
