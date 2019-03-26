@@ -211,17 +211,14 @@ p {
 
 	&__back {
 		position: absolute;
-		top: 1em;
 		left: -6em;
 		display: flex;
 		align-items: center;
 
 		&:hover {
-
 			img {
 					transform: translateX(-10px);
 			}
-
 		}
 
 		img {
@@ -257,6 +254,7 @@ p {
 				-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.19);
 				-moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.19);
 				box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.19);
+				border-bottom: 2px solid green;
 
 				&:hover {
 
@@ -346,10 +344,6 @@ p {
 	justify-content: center;
 	color: #fff;
 
-	&__center {
-
-	}
-
 	&__answers {
 		display: flex;
 		margin-bottom: 2em;
@@ -418,7 +412,6 @@ p {
 		background: linear-gradient(to right, #E23B37 0%, #ECA03F 100%);
 	}
 
-
 	label {
 		display: inline-block;
 		width: 100%;
@@ -437,7 +430,6 @@ p {
 			width: 70px;
 			margin-bottom: .5em;
 		}
-
 
 		&:hover {
 			transform: scale(1.1);
@@ -626,11 +618,9 @@ p {
 			align-items: center;
 
 			&:hover {
-
 				img {
 						transform: translateX(-10px);
 				}
-
 			}
 
 			img {
@@ -643,6 +633,7 @@ p {
 		&__search {
 			display: flex;
 			align-items: center;
+			top: .5em;
 
 			img {
 				transition: .4s;
@@ -666,9 +657,11 @@ p {
 					-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.19);
 					-moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.19);
 					box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.19);
+					border-bottom: 4px solid #9B391E;
 
-					&:hover {
-
+					&:active {
+						border-bottom: 0;
+						transform: translateY(4px);
 					}
 	      }
 
@@ -744,6 +737,7 @@ p {
 		.button {
 			margin-top: 2em;
 		}
+
 	}
 
 	.question-container {
@@ -756,6 +750,12 @@ p {
 
 		&__center {
 
+		}
+
+		&__tag {
+			background-color: #DB784A;
+			padding: .5em;
+			display: inline-block;
 		}
 
 		&__answers {
@@ -866,7 +866,7 @@ p {
 	.movie-card {
 		position: relative;
 		height: 200px;
-	  background-color: #fff;
+	  background-color: #2A3233;
 	  margin: 0 0.5em 1em;
 	  transition: .4s;
 		-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.19);

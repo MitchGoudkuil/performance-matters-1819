@@ -1,6 +1,6 @@
 <section class="question-container">
   <div class="question-container__center">
-    <p>{{ currentQuestionData.tag }}</p>
+    <p class="question-container__tag">{{ currentQuestionData.tag }}</p>
     <h1> {{ currentQuestionData.question }} </h1>
     <form method="post" action="/question/{{nextQuestion}}">
       <div class="question-container__answers ">

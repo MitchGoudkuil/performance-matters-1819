@@ -8,7 +8,7 @@ const compression = require('compression')
 
 app.use(compression())
 app.use((req, res, next) => {
-  if (!req.headers.accept.includes('text/html')) {
+  if (req.headers.accept && !req.headers.accept.includes('text/html')) {
     res.setHeader('Cache-Control', 'max-age=' + 365 * 24 * 60 *
     60 + " ,public");
   }
