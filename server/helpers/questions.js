@@ -11,7 +11,7 @@ function getAll() {
     img: "./img/genre.jpg",
     question: "What genre would you like to watch?",
     tag: "Second question",
-    answers: [{answer: 'thriller', img:"../img/film.svg"},{answer: 'animation', img:"../img/film.svg"},{answer:'horror', img:"../img/film.svg"},{answer: 'comedy', img:"../img/film.svg"}]
+    answers: [{answer: 'thriller', img:"../img/knife.svg"},{answer: 'drama', img:"../img/drama.svg"},{answer:'horror', img:"../img/skull.svg"},{answer: 'comedy', img:"../img/laughing.svg"}]
   }
 ]
 }

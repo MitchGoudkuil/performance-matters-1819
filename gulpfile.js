@@ -2,8 +2,10 @@ const gulp = require('gulp');
 const uglify = require('gulp-uglify');
 const cssnano = require('gulp-cssnano');
 const cleanCSS = require('gulp-clean-css');
+const revReplace = require('gulp-rev-replace');
 const pipeline = require('readable-stream').pipeline;
 const rename = require("gulp-rename");
+const baseDir = 'dist/optimised/';
 
 gulp.task('min-js', function () {
      return gulp.src('./server/public/js/gsap.js')
@@ -12,7 +14,7 @@ gulp.task('min-js', function () {
           path.basename += "-min";
           path.extname = ".js";
         }))
-       .pipe( gulp.dest('server/public/js'))
+       .pipe( gulp.dest(baseDir))
 })
 
 gulp.task('min-css', function () {
@@ -24,5 +26,15 @@ gulp.task('min-css', function () {
          path.basename += "-min";
          path.extname = ".css";
        }))
-      .pipe(gulp.dest('./server/public/css/'));
+      .pipe(gulp.dest(baseDir));
+})
+
+gulp.task('revision', function(){
+  const manifestFilename = "manifest.json";
+
+  gulp.src(baseDir + '**/*.html')
+  .pipe(revReplace({
+    manifest: gulp.src(baseDir + manifestFilename)
+  }))
+  .pipe(gulp.dest(baseDir));
 })

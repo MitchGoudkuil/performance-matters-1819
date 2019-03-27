@@ -69,7 +69,7 @@ table {
 
 html {
   background-color: #fff;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat', 'Lato' , Sans-Serif;
 }
 
 body {
@@ -82,7 +82,7 @@ a {
 }
 
 h1,h2,h3,h4,h5,h6 {
-	font-family: 'BebasNeue';
+	font-family: 'BebasNeue', 'Lato', Sans-Serif;
 	letter-spacing: .1em;
 }
 
@@ -147,7 +147,7 @@ h6 {
 }
 
 p {
-  font-size: 1em; /* 14px/16=0.875em */
+  font-size: 1em;
 	line-height: 1.3;
 }
 
@@ -255,10 +255,6 @@ p {
 				-moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.19);
 				box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.19);
 				border-bottom: 2px solid green;
-
-				&:hover {
-
-				}
       }
 
   &__next {
@@ -392,6 +388,7 @@ p {
 		background: -o-linear-gradient(left, #E23B37 0%, #ECA03F 100%);
 		background: linear-gradient(to right, #E23B37 0%, #ECA03F 100%);
 	}
+
 	#horror:checked ~ label.horror {
 		transform: scale(1.05);
 		background-color: #D34D41;
@@ -474,8 +471,9 @@ p {
 	}
 
 	img {
+		min-width: 200px;
 		width: 100%;
-		height: 100%;
+		height: auto
 	}
 
   &:hover {
@@ -517,7 +515,6 @@ p {
 
 	&__genre-container {
 		margin: .5em 0 1em;
-
 	}
 
 	&__genre {
@@ -541,7 +538,6 @@ p {
 		div {
 			margin-right: 1em;
 		}
-
 	}
 
 	&__company-logo {
@@ -737,7 +733,6 @@ p {
 		.button {
 			margin-top: 2em;
 		}
-
 	}
 
 	.question-container {
@@ -747,10 +742,6 @@ p {
 		align-items: center;
 		justify-content: center;
 		color: #fff;
-
-		&__center {
-
-		}
 
 		&__tag {
 			background-color: #DB784A;
@@ -797,7 +788,7 @@ p {
 			background: linear-gradient(to right, #E23B37 0%, #ECA03F 100%);
 		}
 
-		#animation:checked ~ label.animation {
+		#drama:checked ~ label.drama {
 			transform: scale(1.05);
 			background-color: #D34D41;
 			background-image: -webkit-linear-gradient(left, #E23B37 0%, #ECA03F 100%);
@@ -825,7 +816,6 @@ p {
 			background: -o-linear-gradient(left, #E23B37 0%, #ECA03F 100%);
 			background: linear-gradient(to right, #E23B37 0%, #ECA03F 100%);
 		}
-
 
 		label {
 			display: inline-block;
@@ -865,7 +855,6 @@ p {
 
 	.movie-card {
 		position: relative;
-		height: 200px;
 	  background-color: #2A3233;
 	  margin: 0 0.5em 1em;
 	  transition: .4s;
@@ -890,8 +879,8 @@ p {
 		}
 
 		img {
-			width: 100%;
-			height: 100%;
+			width: 200px;
+			height: auto
 		}
 
 	  &:hover {
@@ -964,7 +953,4 @@ p {
 				height: 40px
 		}
 	}
-
-
-
 }
