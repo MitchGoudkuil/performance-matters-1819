@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 // }))
 
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(express.static('server/assets'))
+app.use(express.static('dist'))
 
 // app.get(['*.js', '*.css'], (req, res, next) => {
 //   const encoding = req.headers['accept-encoding']
