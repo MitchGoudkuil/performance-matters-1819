@@ -7,7 +7,7 @@ const hbs = require('express-handlebars');
 const bodyParser = require('body-parser')
 const compression = require('compression')
 
-// app.use(compression())
+app.use(compression())
 app.use((req, res, next) => {
   if (req.headers.accept && !req.headers.accept.includes('text/html')) {
     res.setHeader('Cache-Control', 'max-age=' + 365 * 24 * 60 *
@@ -15,37 +15,36 @@ app.use((req, res, next) => {
   }
  next();
 });
+// app.use(shrinkRay({
+//   filter: (req) => req.headers['accept'].includes(['text/html'])
+// }))
 
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(express.static(__dirname + '/dist'))
-app.use(shrinkRay({
-  filter: (req) => req.headers['accept'].includes(['text/html'])
-}))
+app.use(express.static('server/assets'))
+
+// app.get(['*.js', '*.css'], (req, res, next) => {
+//   const encoding = req.headers['accept-encoding']
+//   const extensionIndex = req.originalUrl.lastIndexOf('.')
+//   const extension = req.originalUrl.slice(extensionIndex)
+//
+//   if (encoding && encoding.includes('br')) {
+//     req.url = `${req.url}.br`
+//     res.set('Content-Encoding', 'br')
+//   } else if (encoding && encoding.includes('gzip')) {
+//     req.url = `${req.url}.gz`
+//     res.set('Content-Encoding', 'gzip')
+//   }
+//
+//   res.set('Content-Type', extension === '.js' ? 'text/javascript' : 'text/css')
+//   next()
+// })
+
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts' }))
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views')
 
 const questionData = questions.getAll()
 let ingrArray = []
-
-/* routes */
-
-app.get(['*.js', '*.css'], (req, res, next) => {
-  const encoding = req.headers['accept-encoding']
-  const extensionIndex = req.originalUrl.lastIndexOf('.')
-  const extension = req.originalUrl.slice(extensionIndex)
-
-  if (encoding && encoding.includes('br')) {
-    req.url = `${req.url}.br`
-    res.set('Content-Encoding', 'br')
-  } else if (encoding && encoding.includes('gzip')) {
-    req.url = `${req.url}.gz`
-    res.set('Content-Encoding', 'gzip')
-  }
-
-  res.set('Content-Type', extension === '.js' ? 'text/javascript' : 'text/css')
-  next()
-})
 
 app.get('/', function(req, res) {
   ingrArray = []
@@ -56,8 +55,12 @@ app.get('/', function(req, res) {
   });
 })
 
+app.get('/offline', function(req, res) {
+  ingrArray = []
+  res.render('offline');
+})
+
 app.get('/question/:number', async function(req, res) {
-  // console.log(ingrArray);
   if (Number(req.params.number) === questionData.slice(-1).pop().id) {
     res.render('list-template', {
       savedData: await api.getMovie(),
@@ -75,6 +78,13 @@ app.get('/question/:number', async function(req, res) {
 
 app.get('/movie/:id/', async function(req, res) {
   res.render('detail-template', {
+    detailData: await api.getDetails(req.params.id),
+    mainLogo: true
+  });
+})
+
+app.get('/offline', async function(req, res) {
+  res.render('offline', {
     detailData: await api.getDetails(req.params.id),
     mainLogo: true
   });

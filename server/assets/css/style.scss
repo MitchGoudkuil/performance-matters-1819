@@ -60,9 +60,9 @@ table {
 
 @font-face {
     font-family: 'BebasNeue';
-    src: url('../fonts/BebasNeue.woff2') format('woff2'),
-        url('../fonts/BebasNeue.woff') format('woff'),
-        url('../fonts/BebasNeue.ttf') format('truetype');
+    src: url('./fonts/BebasNeue.woff2') format('woff2'),
+        url('./fonts/BebasNeue.woff') format('font-woff'),
+        url('./fonts/BebasNeue.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -272,6 +272,18 @@ p {
   }
 }
 
+.offline-container {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__center {
+		width: 300px;
+	}
+}
+
 .two-row-template {
 	height: 100vh;
 	width: 100vw;
@@ -286,7 +298,6 @@ p {
 		}
 
 		&:nth-of-type(2){
-			// background-image: url(../img/background.jpg);
 			background-color: #303C3F;
 			background-size: 400px;
 			height: 100%;
@@ -676,6 +687,22 @@ p {
 	  }
 	}
 
+	.offline-container {
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #fff;
+
+		&__center {
+			.offline {
+				width: 200px;
+				height: 200px;
+			}
+		}
+	}
+
 	.two-row-template {
 		height: 100vh;
 		width: 100vw;
@@ -690,7 +717,6 @@ p {
 			}
 
 			&:nth-of-type(2){
-				// background-image: url(../img/background.jpg);
 				background-color: #303C3F;
 				background-size: 400px;
 				height: 100%;

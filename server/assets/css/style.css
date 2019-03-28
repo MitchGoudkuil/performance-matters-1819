@@ -56,7 +56,7 @@ table {
 
 @font-face {
   font-family: 'BebasNeue';
-  src: url("../fonts/BebasNeue.woff2") format("woff2"), url("../fonts/BebasNeue.woff") format("woff"), url("../fonts/BebasNeue.ttf") format("truetype");
+  src: url("./fonts/BebasNeue.woff2") format("woff2"), url("./fonts/BebasNeue.woff") format("font-woff"), url("./fonts/BebasNeue.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 html {
@@ -223,6 +223,15 @@ p {
     background-color: fff;
     position: relative;
     overflow: hidden; }
+
+.offline-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .offline-container__center {
+    width: 300px; }
 
 .two-row-template {
   height: 100vh;
@@ -518,6 +527,17 @@ p {
       background-color: fff;
       position: relative;
       overflow: hidden; }
+
+  .offline-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; }
+    .offline-container__center .offline {
+      width: 200px;
+      height: 200px; }
 
   .two-row-template {
     height: 100vh;

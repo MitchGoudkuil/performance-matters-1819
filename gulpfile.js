@@ -4,11 +4,12 @@ const cssnano = require('gulp-cssnano');
 const cleanCSS = require('gulp-clean-css');
 const revReplace = require('gulp-rev-replace');
 const pipeline = require('readable-stream').pipeline;
+const concat = require('gulp-concat');
 const rename = require("gulp-rename");
-const baseDir = 'dist/optimised/';
+const baseDir = 'dist/';
 
 gulp.task('min-js', function () {
-     return gulp.src('./server/public/js/gsap.js')
+     return gulp.src(['./server/assets/js/gsap.js', './server/assets/js/main.js'])
        .pipe(uglify())
        .pipe(rename(function (path) {
           path.basename += "-min";
@@ -18,7 +19,7 @@ gulp.task('min-js', function () {
 })
 
 gulp.task('min-css', function () {
-     return gulp.src('./server/public/css/style.css')
+     return gulp.src('./server/assets/css/style.css')
       .pipe(cleanCSS({compatibility: 'ie8'}))
       .pipe(cssnano({ discardComments: { removeAll:
         true }}))
