@@ -16,6 +16,8 @@ Rebuild of the oba project but with a new concept. Answer questions and get movi
    * [Dynamically render questions](#Dynamically-render-questions)
    * [Setup questions](#Setup-questions)
 * [External data Resources](#External-data-Resources)
+* [First view](#First-view)
+* [Repeat view](#Repeat-view)
 * [Features list](#Features-list)
    * [Wishlist](#wishlist)
 
@@ -72,9 +74,9 @@ To set up the questions go to the questions.js file in the helpers directory and
 ```
 
 ### Optimizations
-To optimize the percieved performance I had a look at the First view and the Repeat view. I chose to do those two because I think it's important to make your site as accessible as possible. This means making the website load fast so the bounce rate drops and to save some of the website in the cache memory so if the user revisits the page will get loaded in quicker.
+To optimize the perceived performance I had a look at the First view and the Repeat view. I chose to do those two because I think it's important to make your site as accessible as possible. This means making the website load fast so the bounce rate drops and to save some of the website in the cache memory so if the user revisits the page will get loaded in quicker.
 
-#### First view:
+#### First view
 
 ##### Css minify:
 To speed up the loading time of the home screen I started with minifying the css. I used sass during development so I could just run sass compressed to get the minified css file.
