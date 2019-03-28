@@ -4,10 +4,7 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "minify": "gulp min-js & gulp min-css",
-    "postbuild": "npm run revision"
+    "start": "node server",
   },
   "author": "",
   "license": "ISC",

@@ -100,6 +100,4 @@ app.get('*', function(req, res){
   res.render('error');
 });
 
-var server = app.listen(3000, function() {
-  console.log('server running at http://localhost:' + server.address().port)
-})
+var server = app.listen(process.env.PORT || 3000)
