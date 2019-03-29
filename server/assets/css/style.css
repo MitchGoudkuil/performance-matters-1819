@@ -361,7 +361,9 @@ p {
 .movie-card {
   position: relative;
   height: 200px;
-  background-color: #fff;
+  background-image: url(/assets/img/noimage.jpg);
+  background-position: center;
+  background-size: cover;
   margin: 0 0.5em 1em;
   transition: .4s;
   -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.19);
@@ -669,7 +671,9 @@ p {
 
   .movie-card {
     position: relative;
-    background-color: #2A3233;
+    background-image: url(/assets/img/noimage.jpg);
+    background-position: center;
+    background-size: cover;
     margin: 0 0.5em 1em;
     transition: .4s;
     -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.19);
