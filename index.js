@@ -3,6 +3,7 @@ const app = express()
 const api = require('./server/helpers/api.js')
 const questions = require('./server/helpers/questions.js')
 const hbs = require('express-handlebars');
+const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser')
 const compression = require('compression')
 
@@ -71,6 +72,4 @@ app.get('*', function(req, res){
 });
 
 
-var server = app.listen(3000, function() {
-  console.log('server running at http://localhost:' + server.address().port)
-})
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
