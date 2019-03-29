@@ -2,9 +2,12 @@
   "name": "pm-1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "minify": "gulp min-js & gulp min-css",
+    "postbuild": "npm run revision"
   },
   "author": "",
   "license": "ISC",
