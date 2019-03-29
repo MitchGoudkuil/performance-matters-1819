@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(express.static(__dirname + 'dist/'))
+app.use(express.static(__dirname + 'server/public'))
 
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/server/views/layouts' }))
 app.set('view engine', 'hbs');
